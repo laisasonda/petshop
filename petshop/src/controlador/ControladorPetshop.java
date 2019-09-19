@@ -60,10 +60,6 @@ public class ControladorPetshop {
         }
         tabela.setModel(modelo);
     }
-
-    public static void alterar(ManutencaoPetshop aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
  
     public static void alterar(ManutencaoPetshop man){
         Petshop objeto = new Petshop();
@@ -82,6 +78,16 @@ public class ControladorPetshop {
         }
     }
 
-
+    public static void excluir(ManutencaoPetshop man){
+        Petshop objeto = new Petshop();
+        objeto.setCodigo(Integer.parseInt(man.jtfCodigo.getText())); //só precisa definir a chave primeira
+        
+        boolean resultado = DaoPetshop.excluir(objeto);
+        if (resultado) {
+            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro!");
+        }
+    }
     
 }

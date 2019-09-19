@@ -90,5 +90,18 @@ public static boolean alterar(Petshop objeto) {
         }
     }
 
+public static boolean excluir(Petshop objeto) {
+        String sql = "DELETE FROM petshop WHERE codigo=?";
+        try {
+            PreparedStatement ps = conexao.Conexao.getConexao().prepareStatement(sql);
+            ps.setInt(1, objeto.getCodigo());
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+    }
+
     
 }
